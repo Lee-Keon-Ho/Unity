@@ -20,3 +20,4 @@ public class debugTest : MonoBehaviour {
     Debug.Log (pos); // 매 프레임 마다 position 정보 출력
     */
   }
+}
