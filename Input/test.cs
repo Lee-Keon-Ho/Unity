@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class sphere_reset : MonoBehaviour
 {
-    private Vector3 v1 = new Vector3(1f,0.5f,2f);
-    private Vector3 v2 = new Vector3(0f, 0f, 0f);
     // Start is called before the first frame update
     void Start()
     {
