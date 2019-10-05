@@ -8,3 +8,5 @@
   - coll.gameObject.GetComponent
   - Plane은 AddForce()를 적용해도 발사되지 않음
   - Rigidbody 가 없으므로
+
+추가된 부분 수정해서 다시 
