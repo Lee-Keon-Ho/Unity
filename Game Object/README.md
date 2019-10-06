@@ -57,3 +57,10 @@
       - 왼손 좌표계 (Unity)
       
 ----------------------------------------------------------------------
+
+  - 물체의 회전
+    - this.transform.Rotate(90.0f * Time.deltaTime, 0.0f 0.0f);
+    - Rotate(x_angle, y_angle, z_angle)
+      - 각 기본축을 중심으로 회전할 각도 지정
+    - 90.0f * Time.deltatime
+      - 1초에 90도 회전시킨다는 의미
