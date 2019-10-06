@@ -36,5 +36,9 @@ public class sphere_reset : MonoBehaviour
         if(Input.GetKey(KeyCode.UpArrow)) { // 방향키 위
             this.transform.Translate(Vector3.forward * 3.0f * Time.deltaTime); // 앞으로 이동 (0, 0, 1) * 3
         }
+        
+        if(Input.GetKey(KeyCode.R)) { // R키 입력
+            this.transform.Rotate(90.0f * Time.deltaTime, 0.0f, 0.0f); // 1초에 90도 회전시킨다는 의미
+        }
     }
 }
