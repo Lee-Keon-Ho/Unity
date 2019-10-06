@@ -6,7 +6,7 @@
   - 확대/축소
     - localScale // Scale
     
-  -Transform 클래스
+  - Transform 클래스
     - 물체의 위치를 이동하거나 회전할 때 사용
     - 동작
       - 이동
