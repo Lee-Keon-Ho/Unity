@@ -64,3 +64,50 @@
       - 각 기본축을 중심으로 회전할 각도 지정
     - 90.0f * Time.deltatime
       - 1초에 90도 회전시킨다는 의미
+      
+----------------------------------------------------------------------
+
+  - Rigidbody(물체에 물리적인 특성을 부여)
+    - 외력으로 움직이려면 Rigidbody 컴포넌트를 추가해야 한다. 예) 중력, 마찰력 등
+    - 키보드 등으로 움직이는 물체는 해당 없음
+    
+  - Rigidbody의 변수
+    - Mass : 물체의 질량
+    - Drag : 공기저항
+    - Angular Drag : 회전운동저항
+      - 마찰력과 유사한 움직임이지만 회전하는 물체에만 적용됨
+    - Use Gravity : 중력의 영향 여부
+      - 없으면 물체가 낙하하지 않음
+    - Is Kinematic
+      - 물체에 가해지는 힘의 크기와 방향 등을 계산하지 않음
+        - 물리엔진 기능을 무효로
+        - 충돌 체크는 여전히 수행
+      - Transform을 통해서만 물체 조작 가능
+    - Interpolate
+      - 물체의 움직임이 지나치게 끊겨 보일 경우 사용
+        - Interpolate / Extrapolate
+      - 물체의 연속된 움직임을 계산하는 방식
+        - None : 아무런 보정 없음
+        - Interpolate : 이전/다음 프레임의 Transform을 기반으로 근사 (수식이 있다 쓰기 찾아보자 쓰기 귀찮아서)
+        - Extrapolate : 이전/ 그 이전 프레임의 Transform을 기반으로 근사 (위와 동일)
+    - Collision Detection
+      - Discrete
+        - 현재 프레임의 위치만으로 충돌 검사
+        - Tunneling 문제
+      - Continuous
+        - 이전 프레임과 현재 프레임 사이의 이동 궤적을 바탕으로 충돌 검사
+        - 안전적인 충돌 검사 가능
+        - 계산량 증가
+        - Rigidbody를 가진 물체엔 Discrete 충돌 검사, Rigidbody가 없는 물체엔 Continuous 충돌 검사
+      - Continous Dynamic
+        - Continuous 충돌 검사
+          - Continuous나 Continuous Dynamic이 적용된 물체
+          - Rigidbody가 없는 물체
+        - Discrete가 적용된 물체엔 Discrete 충돌 검사
+        - 압도적인 계산량
+    - Constraints : 외력에 의한 움직임에 제약을 부여
+      - Freeze Position
+        - 선택된 축 방향 이동불가
+      - Freeze Rotation
+        - 선택된 축 중심 회전불가
+
