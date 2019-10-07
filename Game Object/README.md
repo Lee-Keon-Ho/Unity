@@ -72,17 +72,23 @@
     - 키보드 등으로 움직이는 물체는 해당 없음
     
   - Rigidbody의 변수
+  
     - Mass : 물체의 질량
+    
     - Drag : 공기저항
+    
     - Angular Drag : 회전운동저항
       - 마찰력과 유사한 움직임이지만 회전하는 물체에만 적용됨
+      
     - Use Gravity : 중력의 영향 여부
       - 없으면 물체가 낙하하지 않음
+      
     - Is Kinematic
       - 물체에 가해지는 힘의 크기와 방향 등을 계산하지 않음
         - 물리엔진 기능을 무효로
         - 충돌 체크는 여전히 수행
       - Transform을 통해서만 물체 조작 가능
+      
     - Interpolate
       - 물체의 움직임이 지나치게 끊겨 보일 경우 사용
         - Interpolate / Extrapolate
@@ -90,24 +96,77 @@
         - None : 아무런 보정 없음
         - Interpolate : 이전/다음 프레임의 Transform을 기반으로 근사 (수식이 있다 쓰기 찾아보자 쓰기 귀찮아서)
         - Extrapolate : 이전/ 그 이전 프레임의 Transform을 기반으로 근사 (위와 동일)
+        
     - Collision Detection
       - Discrete
         - 현재 프레임의 위치만으로 충돌 검사
         - Tunneling 문제
+        
       - Continuous
         - 이전 프레임과 현재 프레임 사이의 이동 궤적을 바탕으로 충돌 검사
         - 안전적인 충돌 검사 가능
         - 계산량 증가
         - Rigidbody를 가진 물체엔 Discrete 충돌 검사, Rigidbody가 없는 물체엔 Continuous 충돌 검사
+        
       - Continous Dynamic
         - Continuous 충돌 검사
           - Continuous나 Continuous Dynamic이 적용된 물체
           - Rigidbody가 없는 물체
         - Discrete가 적용된 물체엔 Discrete 충돌 검사
         - 압도적인 계산량
+        
     - Constraints : 외력에 의한 움직임에 제약을 부여
       - Freeze Position
         - 선택된 축 방향 이동불가
       - Freeze Rotation
         - 선택된 축 중심 회전불가
 
+----------------------------------------------------------------------
+
+  - 물체에 탄성 추가
+    - Assets -> Create -> Physic Material
+    
+    - Average, Minimum, Multiply, Maximum
+      - 두 충돌 물체의 수치 중 평균/최소/곱/최대값을 이용
+    
+    - Drag 수치 조절
+      - 튀어오르는 반동 조절
+      - 0이면 저항이 없음
+      
+----------------------------------------------------------------------
+
+  - 물체에 질감 부여
+    - Create -> Material
+    - Texture(사진도 사용가능)
+    
+----------------------------------------------------------------------
+
+  - 사운드 출력
+    - Add Component -> Audio -> Audio Source
+    - Play On Awake : 연걸된 물체의 등장과 함께 소리 재생
+    - Loop : 반복 재생
+    - Priority : 우선 순위(0 : 최고, 256 : 최소, 128 : 기본값)
+    - Pitch : 재생 속도
+    
+----------------------------------------------------------------------
+
+  - 충돌 이벤트 처리
+    - OnCollisionEnter()
+      - 스크립트가 연결된 물체에 충돌 발생 시 호출되는 함수
+        - 부딪힌 물체의 정보를 Collision 타입의 매개변수를 통해 전달
+        - coll.gameObject 를 통해 부딪힌 물체를 제어
+        
+        예)
+        void OnCollisionEnter(Collision coll)
+        {
+          GetComponent<AudioSource>().Play();
+        }
+  
+    - OnCollisionEnter()
+      - 충돌이 시작된 순간의 이벤트 처리
+      
+    - OnCollisionStay()
+      - 충돌이 유지되고 있는 동안의 이벤트 처리
+    
+    - OnCollisionExit()
+      - 충돌이 유지되고 있다가 끝나는 순간의 이벤트 처리
