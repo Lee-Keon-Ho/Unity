@@ -25,8 +25,8 @@ Input 클래스
   - 사용자의 키 입력을 판정하는 클래스
     - Input.GetAxis("Horizontal"): 좌우 이동키의 이동 방향
     - Input.GetAxis("Vertical"): 앞뒤 이동키의 이동 방향
-    - Input.GetKeyDown(): 특정한 키를 눌렀는지 여부
-    - Input.GetButtonDown(): 특정한 키나 버튼을 눌렀는지 여부
+    - Input.GetKeyDown(): 특정한 키를 눌렀는지 여부 // 키보드
+    - Input.GetButtonDown(): 특정한 키나 버튼을 눌렀는지 여부 // 키보드x, 콘솔 동
     - Input.GetMouseButtonDown(): 마우스버튼을 눌렀는지 여부
     - Input.GetTouch(): 터치스크린 화면을 눌렀는지 여부
     
