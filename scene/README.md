@@ -1,1 +1,3 @@
 # 장면 전환
+ - File -> Build Settings...
+  - Add Open Scenes
