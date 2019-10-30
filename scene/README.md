@@ -1,3 +1,12 @@
 # 장면 전환
  - File -> Build Settings...
   - Add Open Scenes
+ - scene_name
+  - 구성한 장면 이름
+ - scene_index
+  - 장면의 인데스 번호
+ - mode : 선택적(작성하지 않으면, LoadSceneMode.Single)
+  - LoadSceneMode.Single
+   - 현재 로드되어 있는 장면을 지우고 새로 불러옴
+  - LoadSceneMode.Additive
+   - 현재 로드되어 있는 장면에 추가로 겹쳐서 불러옴
