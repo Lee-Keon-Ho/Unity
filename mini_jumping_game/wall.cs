@@ -9,7 +9,7 @@ public class wall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 5.0f); // object가 생성된 후 5초 있다가 삭제
     }
 
     // Update is called once per frame
