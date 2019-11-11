@@ -17,7 +17,7 @@ public class player : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, jump_power, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(0, jump_power, 0); // AddForse와 
         }
     }
     private void OnCollisionEnter(Collision collision)
