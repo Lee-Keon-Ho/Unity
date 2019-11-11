@@ -13,7 +13,7 @@ public class spawn : MonoBehaviour
         {
             interval = Random.Range(1.0f, 2.0f);
             Instantiate(pf_wall, transform.position, transform.rotation);
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(interval); // interval 시간 만큼 있다가 다시 실행
         }
     }
 
