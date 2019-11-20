@@ -12,6 +12,7 @@ public class debugTest : MonoBehaviour {
   
   void Update () {
     Debug.Log (i++); // 매 프레임 마다 호출됨
+    Debug.DrawRay();
     
     /*
     Vector3 pos;
